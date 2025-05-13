@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Mini Framework CSS</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Estilos básicos para a documentação */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --code-bg: #f5f5f5;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        nav {
+            position: sticky;
+            top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul ul {
+            padding-left: 1.5rem;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+        }
+
+        .example {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Documentação - Mini Framework CSS</h1>
+            <p>Um framework CSS leve e simples inspirado no Bootstrap, com componentes essenciais e sistema de grid
+                responsivo.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <nav>
+                <h3>Índice</h3>
+                <ul>
+                    <li><a href="#instalacao">Instalação</a></li>
+                    <li>
+                        <a href="#sistema-de-grid">Sistema de Grid</a>
+                        <ul>
+                            <li><a href="#containers">Containers</a></li>
+                            <li><a href="#linhas-e-colunas">Linhas e Colunas</a></li>
+                            <li><a href="#classes-de-coluna">Classes de Coluna</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#componentes">Componentes</a>
+                        <ul>
+                            <li><a href="#botoes">Botões</a></li>
+                            <li><a href="#cards">Cards</a></li>
+                            <li><a href="#alertas">Alertas</a></li>
+                            <li><a href="#formularios">Formulários</a></li>
+                            <li><a href="#navbar">Navbar</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#utilitarios">Utilitários</a>
+                        <ul>
+                            <li><a href="#texto">Texto</a></li>
+                            <li><a href="#cores-de-fundo">Cores de Fundo</a></li>
+                            <li><a href="#margens">Margens</a></li>
+                            <li><a href="#paddings">Paddings</a></li>
+                            <li><a href="#flexbox">Flexbox</a></li>
+                            <li><a href="#display">Display</a></li>
+                            <li><a href="#bordas">Bordas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#exemplo-completo">Exemplo Completo</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <section id="instalacao">
+                    <h2>Instalação</h2>
+                    <p>Baixe o arquivo CSS e inclua-o em seu projeto HTML:</p>
+                    <pre><code>&lt;link rel="stylesheet" href="mini-framework.css"&gt;</code></pre>
+                </section>
+
+                <section id="sistema-de-grid">
+                    <h2>Sistema de Grid</h2>
+                    <p>O sistema de grid é baseado em um layout de 12 colunas com breakpoints responsivos.</p>
+
+                    <h3 id="containers">Containers</h3>
+                    <pre><code>&lt;!-- Container com largura máxima em cada breakpoint --&gt;
+&lt;div class="container"&gt;
+  &lt;!-- Conteúdo --&gt;
+&lt;/div&gt;
+
+&lt;!-- Container com largura total --&gt;
+&lt;div class="container-fluid"&gt;
+  &lt;!-- Conteúdo --&gt;
+&lt;/div&gt;</code></pre>
+
+                    <h3 id="linhas-e-colunas">Linhas e Colunas</h3>
+                    <pre><code>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+      &lt;!-- Ocupa 12 colunas em dispositivos pequenos, 
+           6 em médios e 4 em grandes --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-lg-8"&gt;
+      &lt;!-- Ocupa 12 colunas em dispositivos pequenos, 
+           6 em médios e 8 em grandes --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <h3 id="classes-de-coluna">Classes de Coluna</h3>
+                    <ul>
+                        <li><code>.col</code> - Coluna com largura automática</li>
+                        <li><code>.col-1</code> a <code>.col-12</code> - Colunas com largura específica (1/12 a 12/12)
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="componentes">
+                    <h2>Componentes</h2>
+
+                    <h3 id="botoes">Botões</h3>
+                    <pre><code>&lt;!-- Estilos de botão básicos --&gt;
+&lt;button class="btn btn-primary"&gt;Primário&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secundário&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Sucesso&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Perigo&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Alerta&lt;/button&gt;
+&lt;button class="btn btn-info"&gt;Informação&lt;/button&gt;
+&lt;button class="btn btn-light"&gt;Claro&lt;/button&gt;
+&lt;button class="btn btn-dark"&gt;Escuro&lt;/button&gt;
+
+&lt;!-- Botões com contorno --&gt;
+&lt;button class="btn btn-outline-primary"&gt;Contorno Primário&lt;/button&gt;
+&lt;button class="btn btn-outline-secondary"&gt;Contorno Secundário&lt;/button&gt;</code></pre>
+
+                    <h3 id="cards">Cards</h3>
+                    <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    Cabeçalho do Card
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Título do Card&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Texto do card com conteúdo.&lt;/p&gt;
+    &lt;button class="btn btn-primary"&gt;Botão&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="card-footer"&gt;
+    Rodapé do Card
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <!-- <div class="card">
+                        div class="card-header"
+                        Cabeçalho do Card
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"> Título do Card</h5>
+                        <p class="card-text"> Texto do card com conteúdo.</p>
+                        <button class="btn btn-primary"> Botão </button>
+                    </div>
+                    <div class="card-footer">
+                        Rodapé do Card
+                    </div>
+        </div> -->
+
+        <h3 id="alertas">Alertas</h3>
+        <pre><code>&lt;div class="alert alert-primary"&gt;
+  Este é um alerta primário
+&lt;/div&gt;
+&lt;div class="alert alert-secondary"&gt;
+  Este é um alerta secundário
+&lt;/div&gt;
+&lt;div class="alert alert-success"&gt;
+  Este é um alerta de sucesso
+&lt;/div&gt;
+&lt;div class="alert alert-danger"&gt;
+  Este é um alerta de perigo
+&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;
+  Este é um alerta de aviso
+&lt;/div&gt;
+&lt;div class="alert alert-info"&gt;
+  Este é um alerta informativo
+&lt;/div&gt;</code></pre>
+
+        <h3 id="formularios">Formulários</h3>
+        <pre><code>&lt;form&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="exampleInput"&gt;Exemplo de Input&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="exampleInput" placeholder="Digite algo"&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="form-group"&gt;
+    &lt;label for="exampleTextarea"&gt;Exemplo de Textarea&lt;/label&gt;
+    &lt;textarea class="form-control" id="exampleTextarea" rows="3"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  
+  &lt;button type="submit" class="btn btn-primary"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <h3 id="navbar">Navbar</h3>
+        <pre><code>&lt;nav class="navbar navbar-light"&gt;
+  &lt;a class="navbar-brand" href="#"&gt;Logo&lt;/a&gt;
+  &lt;ul class="navbar-nav"&gt;
+    &lt;li class="nav-item"&gt;
+      &lt;a class="nav-link" href="#"&gt;Início&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item"&gt;
+      &lt;a class="nav-link" href="#"&gt;Sobre&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item"&gt;
+      &lt;a class="nav-link" href="#"&gt;Contato&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- Navbar escura --&gt;
+&lt;nav class="navbar navbar-dark"&gt;
+  &lt;!-- Conteúdo --&gt;
+&lt;/nav&gt;</code></pre>
+        </section>
+
+        <section id="utilitarios">
+            <h2>Utilitários</h2>
+
+            <h3 id="texto">Texto</h3>
+            <h4>Alinhamento de texto</h4>
+            <pre><code>&lt;p class="text-left"&gt;Alinhado à esquerda&lt;/p&gt;
+&lt;p class="text-center"&gt;Centralizado&lt;/p&gt;
+&lt;p class="text-right"&gt;Alinhado à direita&lt;/p&gt;</code></pre>
+
+            <h4>Cores de texto</h4>
+            <pre><code>&lt;p class="text-primary"&gt;Texto primário&lt;/p&gt;
+&lt;p class="text-secondary"&gt;Texto secundário&lt;/p&gt;
+&lt;p class="text-success"&gt;Texto de sucesso&lt;/p&gt;
+&lt;p class="text-danger"&gt;Texto de perigo&lt;/p&gt;
+&lt;p class="text-warning"&gt;Texto de alerta&lt;/p&gt;
+&lt;p class="text-info"&gt;Texto informativo&lt;/p&gt;
+&lt;p class="text-light"&gt;Texto claro&lt;/p&gt;
+&lt;p class="text-dark"&gt;Texto escuro&lt;/p&gt;
+&lt;p class="text-white"&gt;Texto branco&lt;/p&gt;</code></pre>
+
+            <h3 id="cores-de-fundo">Cores de Fundo</h3>
+            <pre><code>&lt;div class="bg-primary"&gt;Fundo primário&lt;/div&gt;
+&lt;div class="bg-secondary"&gt;Fundo secundário&lt;/div&gt;
+&lt;div class="bg-success"&gt;Fundo de sucesso&lt;/div&gt;
+&lt;div class="bg-danger"&gt;Fundo de perigo&lt;/div&gt;
+&lt;div class="bg-warning"&gt;Fundo de alerta&lt;/div&gt;
+&lt;div class="bg-info"&gt;Fundo informativo&lt;/div&gt;
+&lt;div class="bg-light"&gt;Fundo claro&lt;/div&gt;
+&lt;div class="bg-dark"&gt;Fundo escuro&lt;/div&gt;
+&lt;div class="bg-white"&gt;Fundo branco&lt;/div&gt;</code></pre>
+
+            <h3 id="margens">Margens</h3>
+            <pre><code>&lt;!-- Margem em todos os lados --&gt;
+&lt;div class="m-0"&gt;Sem margem&lt;/div&gt;
+&lt;div class="m-1"&gt;Margem pequena (0.25rem)&lt;/div&gt;
+&lt;div class="m-2"&gt;Margem média (0.5rem)&lt;/div&gt;
+&lt;div class="m-3"&gt;Margem normal (1rem)&lt;/div&gt;
+&lt;div class="m-4"&gt;Margem grande (1.5rem)&lt;/div&gt;
+&lt;div class="m-5"&gt;Margem extra grande (3rem)&lt;/div&gt;
+
+&lt;!-- Margens direcionais --&gt;
+&lt;div class="mt-3"&gt;Margem superior&lt;/div&gt;
+&lt;div class="mb-3"&gt;Margem inferior&lt;/div&gt;
+&lt;div class="ml-3"&gt;Margem à esquerda&lt;/div&gt;
+&lt;div class="mr-3"&gt;Margem à direita&lt;/div&gt;</code></pre>
+
+            <h3 id="paddings">Paddings</h3>
+            <pre><code>&lt;!-- Padding em todos os lados --&gt;
+&lt;div class="p-0"&gt;Sem padding&lt;/div&gt;
+&lt;div class="p-1"&gt;Padding pequeno (0.25rem)&lt;/div&gt;
+&lt;div class="p-2"&gt;Padding médio (0.5rem)&lt;/div&gt;
+&lt;div class="p-3"&gt;Padding normal (1rem)&lt;/div&gt;
+&lt;div class="p-4"&gt;Padding grande (1.5rem)&lt;/div&gt;
+&lt;div class="p-5"&gt;Padding extra grande (3rem)&lt;/div&gt;
+
+&lt;!-- Paddings direcionais --&gt;
+&lt;div class="pt-3"&gt;Padding superior&lt;/div&gt;
+&lt;div class="pb-3"&gt;Padding inferior&lt;/div&gt;
+&lt;div class="pl-3"&gt;Padding à esquerda&lt;/div&gt;
+&lt;div class="pr-3"&gt;Padding à direita&lt;/div&gt;</code></pre>
+
+            <h3 id="flexbox">Flexbox</h3>
+            <pre><code>&lt;!-- Display flex --&gt;
+&lt;div class="d-flex"&gt;
+  &lt;!-- Itens flex --&gt;
+&lt;/div&gt;
+
+&lt;!-- Direção --&gt;
+&lt;div class="d-flex flex-row"&gt;Linha (padrão)&lt;/div&gt;
+&lt;div class="d-flex flex-column"&gt;Coluna&lt;/div&gt;
+
+&lt;!-- Alinhamento horizontal --&gt;
+&lt;div class="d-flex justify-content-start"&gt;Início&lt;/div&gt;
+&lt;div class="d-flex justify-content-end"&gt;Fim&lt;/div&gt;
+&lt;div class="d-flex justify-content-center"&gt;Centro&lt;/div&gt;
+&lt;div class="d-flex justify-content-between"&gt;Entre&lt;/div&gt;
+&lt;div class="d-flex justify-content-around"&gt;Em torno&lt;/div&gt;
+
+&lt;!-- Alinhamento vertical --&gt;
+&lt;div class="d-flex align-items-start"&gt;Início&lt;/div&gt;
+&lt;div class="d-flex align-items-end"&gt;Fim&lt;/div&gt;
+&lt;div class="d-flex align-items-center"&gt;Centro&lt;/div&gt;
+&lt;div class="d-flex align-items-baseline"&gt;Linha de base&lt;/div&gt;
+&lt;div class="d-flex align-items-stretch"&gt;Esticar&lt;/div&gt;</code></pre>
+
+            <h3 id="display">Display</h3>
+            <pre><code>&lt;div class="d-none"&gt;Oculto para todos os tamanhos&lt;/div&gt;
+&lt;div class="d-inline"&gt;Exibido como inline&lt;/div&gt;
+&lt;div class="d-inline-block"&gt;Exibido como inline-block&lt;/div&gt;
+&lt;div class="d-block"&gt;Exibido como block&lt;/div&gt;</code></pre>
+
+            <h3 id="bordas">Bordas</h3>
+            <pre><code>&lt;div class="border"&gt;Borda em todos os lados&lt;/div&gt;
+&lt;div class="border-0"&gt;Sem bordas&lt;/div&gt;
+&lt;div class="border-top"&gt;Borda superior&lt;/div&gt;
+&lt;div class="border-right"&gt;Borda direita&lt;/div&gt;
+&lt;div class="border-bottom"&gt;Borda inferior&lt;/div&gt;
+&lt;div class="border-left"&gt;Borda esquerda&lt;/div&gt;
+
+&lt;!-- Arredondamento --&gt;
+&lt;div class="rounded"&gt;Cantos arredondados&lt;/div&gt;
+&lt;div class="rounded-circle"&gt;Forma circular&lt;/div&gt;
+&lt;div class="rounded-0"&gt;Sem arredondamento&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="exemplo-completo">
+            <h2>Exemplo de Página Completa</h2>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;link rel="stylesheet" href="mini-framework.css"&gt;
+  &lt;title&gt;Exemplo de Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Navbar --&gt;
+  &lt;nav class="navbar navbar-dark bg-dark mb-4"&gt;
+    &lt;div class="container"&gt;
+      &lt;a class="navbar-brand" href="#"&gt;Mini Framework&lt;/a&gt;
+      &lt;ul class="navbar-nav d-flex flex-row"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link mr-3" href="#"&gt;Início&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link mr-3" href="#"&gt;Recursos&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link" href="#"&gt;Contato&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- Conteúdo principal --&gt;
+  &lt;div class="container"&gt;
+    &lt;!-- Alerta --&gt;
+    &lt;div class="alert alert-info mb-4"&gt;
+      Bem-vindo ao exemplo de site usando o Mini Framework CSS!
+    &lt;/div&gt;
+
+    &lt;!-- Cards em grid --&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-12 col-md-4 mb-4"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title"&gt;Recurso 1&lt;/h5&gt;
+            &lt;p class="card-text"&gt;Descrição do primeiro recurso do framework.&lt;/p&gt;
+            &lt;button class="btn btn-primary"&gt;Saiba mais&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="col-12 col-md-4 mb-4"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title"&gt;Recurso 2&lt;/h5&gt;
+            &lt;p class="card-text"&gt;Descrição do segundo recurso do framework.&lt;/p&gt;
+            &lt;button class="btn btn-primary"&gt;Saiba mais&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="col-12 col-md-4 mb-4"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-body"&gt;
+            &lt;h5 class="card-title"&gt;Recurso 3&lt;/h5&gt;
+            &lt;p class="card-text"&gt;Descrição do terceiro recurso do framework.&lt;/p&gt;
+            &lt;button class="btn btn-primary"&gt;Saiba mais&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Formulário --&gt;
+    &lt;div class="row mt-4"&gt;
+      &lt;div class="col-12 col-md-6 offset-md-3"&gt;
+        &lt;div class="card"&gt;
+          &lt;div class="card-header"&gt;
+            Entre em contato
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;form&gt;
+              &lt;div class="form-group"&gt;
+                &lt;label for="name"&gt;Nome&lt;/label&gt;
+                &lt;input type="text" class="form-control" id="name" placeholder="Seu nome"&gt;
+              &lt;/div&gt;
+              
+              &lt;div class="form-group"&gt;
+                &lt;label for="email"&gt;Email&lt;/label&gt;
+                &lt;input type="email" class="form-control" id="email" placeholder="seu@email.com"&gt;
+              &lt;/div&gt;
+              
+              &lt;div class="form-group"&gt;
+                &lt;label for="message"&gt;Mensagem&lt;/label&gt;
+                &lt;textarea class="form-control" id="message" rows="3"&gt;&lt;/textarea&gt;
+              &lt;/div&gt;
+              
+              &lt;button type="submit" class="btn btn-success"&gt;Enviar&lt;/button&gt;
+            &lt;/form&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Rodapé --&gt;
+  &lt;footer class="bg-dark text-white p-3 mt-5"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="d-flex justify-content-between"&gt;
+        &lt;div&gt;
+          &lt;p class="mb-0"&gt;Mini Framework CSS &copy; 2025&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;a href="#" class="text-white mr-3"&gt;Termos&lt;/a&gt;
+          &lt;a href="#" class="text-white"&gt;Privacidade&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        </main>
+    </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Mini Framework CSS - Documentação © 2025</p>
+        </div>
+    </footer>
+</body>
+
+</html>
